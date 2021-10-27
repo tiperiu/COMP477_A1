@@ -31,7 +31,7 @@ SOURCES += \
     OpenGL/elements/circle.cpp \
     OpenGL/elements/drawelement.cpp \
     OpenGL/elements/drawelement2D.cpp \
-    OpenGL/elements/joint2D.cpp \
+    OpenGL/elements/Joint2D.cpp \
     OpenGL/elements/link2d.cpp \
     OpenGL/elements/polygon.cpp \
     OpenGL/geometry/geometryutils.cpp \
@@ -56,7 +56,7 @@ HEADERS += \
     OpenGL/elements/circle.h \
     OpenGL/elements/drawelement.h \
     OpenGL/elements/drawelement2D.h \
-    OpenGL/elements/joint2D.h \
+    OpenGL/elements/Joint2D.h \
     OpenGL/elements/link2d.h \
     OpenGL/elements/obstacle2d.h \
     OpenGL/elements/polygon.h \
