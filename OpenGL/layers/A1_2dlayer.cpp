@@ -10,7 +10,7 @@ using namespace std;
 
 
 A1_2DLayer::A1_2DLayer(OGLTWidget* parent)
-    :OGLLayer(parent), m_selected(0), m_UIMode(1),
+    :OGLLayer(parent), m_UIMode(1), m_selected(0),
       m_solution(m_joints, m_links)
 {
 
@@ -56,7 +56,7 @@ void A1_2DLayer::mouse_grab(MouseInfo m){
         // Joint place / move mode
         m_selected = nullptr;
         Joint2D* selected_joint = nullptr;
-        for(int i=0;i<m_joints.size();++i){
+        for(unsigned int i=0;i<m_joints.size();++i){
             if(m_joints[i]->m_is_movable && m_joints[i]->is_inside(m.pos)){
                 selected_joint = m_joints[i];
                 break;
@@ -99,7 +99,7 @@ void A1_2DLayer::mouse_grab(MouseInfo m){
 
             Joint2D* start_joint = nullptr;
 
-            for(int i=0;i<m_joints.size();++i){
+            for(unsigned int i=0;i<m_joints.size();++i){
                 if(m_joints[i]->m_is_movable && m_joints[i]->is_inside(m.pos)){
                     start_joint = m_joints[i];
                     break;
@@ -118,7 +118,7 @@ void A1_2DLayer::mouse_grab(MouseInfo m){
         } else if (m.button == 2){
 
             Link2D* link = nullptr;
-            for(int i=0;i<m_links.size();++i){
+            for(unsigned int i=0;i<m_links.size();++i){
                 if (m_links[i]->m_is_movable && m_links[i]->is_inside(m.pos)){
                     link = m_links[i];
                     break;
@@ -144,7 +144,7 @@ void A1_2DLayer::mouse_grab(MouseInfo m){
 
         // Joint place / move mode
         m_selected = nullptr;
-        for(int i=0;i<m_joints.size();++i){
+        for(unsigned int i=0;i<m_joints.size();++i){
 
             if(m_joints[i]->m_is_movable && m_joints[i]->is_inside(m.pos)){
                 m_selected = m_joints[i];
@@ -200,7 +200,7 @@ void A1_2DLayer::mouse_release(MouseInfo m){
 
         if(m_selected){
             Joint2D* end_joint = nullptr;
-            for(int i=0;i<m_joints.size();++i){
+            for(unsigned int i=0;i<m_joints.size();++i){
                 if(m_joints[i]->m_is_movable && GeometryUtils::is_inside(m.pos.x(), m.pos.y(),m_joints[i]->getBB())){
                     end_joint = m_joints[i];
                     break;
@@ -257,9 +257,9 @@ bool A1_2DLayer::draw(){
 
 
     // render all elememnts
-    for(int i=0;i<m_joints.size();++i)
+    for(unsigned int i=0;i<m_joints.size();++i)
         m_joints[i]->draw(m_view, m_projection);
-    for(int i=0;i<m_links.size();++i)
+    for(unsigned int i=0;i<m_links.size();++i)
         m_links[i]->draw(m_view, m_projection);
 
 
