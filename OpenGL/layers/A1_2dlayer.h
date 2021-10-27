@@ -5,7 +5,7 @@
 
 #include "../elements/drawelement2D.h"
 
-#include "../elements/joint2D.h"
+#include "../elements/Joint2D.h"
 #include "../elements/obstacle2d.h"
 #include "../elements/link2d.h"
 
@@ -45,8 +45,8 @@ public:
 
     virtual ~A1_2DLayer(){}
 
-    virtual bool save(QDataStream* out){return false;};
-    virtual bool load(QDataStream* out){return false;};
+    virtual bool save(QDataStream*){return false;};
+    virtual bool load(QDataStream*){return false;};
 
     QMatrix4x4 m_projection, m_view;
 

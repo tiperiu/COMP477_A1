@@ -26,11 +26,11 @@ void Link2D::mouse_drag(MouseInfo m){
 }
 
 void Link2D::mouse_grab(MouseInfo m){
-
+    (void)m;
 }
 
 void Link2D::mouse_release(MouseInfo m){
-
+    (void)m;
 }
 
 bool Link2D::is_inside(QVector2D pos)const{

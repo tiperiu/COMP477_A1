@@ -291,14 +291,11 @@ bool OGLTWidget::save_frame_buffer(std::string f){
 
 // load / save
 
-void OGLTWidget::readCurves(QDataStream* in){
-
+void OGLTWidget::readCurves(QDataStream*){
     update();
 }
 
-void OGLTWidget::writeCurves(QDataStream* out){
-
-
+void OGLTWidget::writeCurves(QDataStream*){
 
 }
 

@@ -16,31 +16,34 @@ A1_2DLayer::A1_2DLayer(OGLTWidget* parent)
 
 }
 
- void A1_2DLayer::mouse_hover(MouseInfo m){
-
+void A1_2DLayer::mouse_hover(MouseInfo m){
+    (void)m;
 }
 
 bool A1_2DLayer::setUIMode(int m){
     m_UIMode = m;
+    return true;
 }
 
 bool A1_2DLayer::reset_view(){
     m_view.setToIdentity();
+    return true;
 }
 
 
 void A1_2DLayer::key_press(KeyboardInfo ki){
+    (void)ki;
 }
 
 
 void A1_2DLayer::key_release(KeyboardInfo ki){
+    (void)ki;
 }
 
 
 
 void A1_2DLayer::scroll(double delta){
-
-
+    (void)delta;
 }
 
 
@@ -70,7 +73,8 @@ void A1_2DLayer::mouse_grab(MouseInfo m){
                 m_selected = selected_joint;
             }
         } else  if (m.button == 2 && selected_joint){
-            for(auto it2 = selected_joint->get_links().begin(); it2 != selected_joint->get_links().end(); ++it2){
+            auto links = selected_joint->get_links();
+            for(auto it2 = links.begin(); it2 != links.end(); ++it2){
                 for(auto it = m_links.begin(); it != m_links.end(); ++it){
                     if (*it == *it2){
                         m_links.erase(it);
@@ -140,10 +144,8 @@ void A1_2DLayer::mouse_grab(MouseInfo m){
 
         // Joint place / move mode
         m_selected = nullptr;
-        Joint2D* selected_joint = nullptr;
         for(int i=0;i<m_joints.size();++i){
 
-            // MAKSYM: ADD TO IF ONLY JOIMNGTS THAT HAVE THE X
             if(m_joints[i]->m_is_movable && m_joints[i]->is_inside(m.pos)){
                 m_selected = m_joints[i];
                 break;
@@ -226,7 +228,7 @@ void A1_2DLayer::mouse_release(MouseInfo m){
 }
 
 void A1_2DLayer::mouse_double_click(MouseInfo m){
-
+    (void)m;
 }
 
 

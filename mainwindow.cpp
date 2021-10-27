@@ -61,10 +61,6 @@ void MainWindow::on_actionLoad_triggered()
     QTextStream in(&file);
     QString json_data = in.readAll();
     json j = json::parse(json_data.toStdString());
-    //    QMessageBox::information(this, tr("Unable to parse file (bad JSON syntax)"),
-    //        file.errorString());
-    //    return;
-    //}
 
     A1_2DWidget* w = ui->OpenGL;
     A1_2DLayer* l = dynamic_cast<A1_2DLayer*>(w->m_layers[0]);
@@ -86,7 +82,7 @@ void MainWindow::on_actionLoad_triggered()
 
     for (auto itr = j["joints"].begin(); itr!= j["joints"].end(); itr++){
         Joint2D* joint = new Joint2D(l->m_parent);
-        joint->m_id = (*itr)["id"];
+        joint->m_id = (*itr)["id"].get<std::string>();
         id_map[joint->m_id] = joint;
         QVector2D pos((*itr)["pos_x"], (*itr)["pos_y"]);
         joint->set_position(pos);
@@ -94,7 +90,7 @@ void MainWindow::on_actionLoad_triggered()
     }
     for (auto itr = j["links"].begin(); itr!= j["links"].end(); itr++){
         Link2D* link = new Link2D(l->m_parent);
-        link->m_id = (*itr)["id"];
+        link->m_id = (*itr)["id"].get<std::string>();
         link->set_first_joint(id_map[(*itr)["first_joint_id"]]);
         link->set_second_joint(id_map[(*itr)["second_joint_id"]]);
         link->compute(QVector2D(0,0));
@@ -102,8 +98,6 @@ void MainWindow::on_actionLoad_triggered()
     }
 
     if(w->m_layers.size()!=0){
-
-
     }
     w->update();
 }
