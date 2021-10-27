@@ -98,7 +98,7 @@ void OGLTWidget::initializeGL()
 
 void OGLTWidget::resizeGL(int w, int h)
 {
-    for(int i=0;i<m_layers.size();++i){
+    for(unsigned int i=0;i<m_layers.size();++i){
         m_layers[i]->resizeGL(w, h);
     }
 }
@@ -129,10 +129,8 @@ void OGLTWidget::paintGL()
 
 
     // render all elememnts
-    for(int i=0;i<m_layers.size();++i)
+    for(unsigned int i=0;i<m_layers.size();++i)
         m_layers[i]->draw();
-
-
 
 }
 
