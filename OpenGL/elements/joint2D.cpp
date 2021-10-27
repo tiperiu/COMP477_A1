@@ -1,4 +1,4 @@
-J#include "joint2D.h"
+#include "joint2D.h"
 #include "link2d.h"
 
 #include <iostream>
