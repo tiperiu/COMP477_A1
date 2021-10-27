@@ -48,6 +48,8 @@ public:
     virtual bool save(QDataStream*){return false;};
     virtual bool load(QDataStream*){return false;};
 
+    DrawElement2D* m_selected;
+
     QMatrix4x4 m_projection, m_view;
 
     // Visible elements
@@ -55,8 +57,6 @@ public:
 
     std::vector<Joint2D*> m_joints;
     std::vector<Link2D*> m_links;
-
-    DrawElement2D* m_selected;
 
     // this is where the students add their solution
     A1Solution m_solution;
