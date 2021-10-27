@@ -15,7 +15,8 @@ class DrawElement : protected QOpenGLFunctions
 public:
     DrawElement(OGLTWidget* parent);
 
-    // common elements
+    bool m_bIsInitGL;
+    bool m_bUpdateBuffer;
 
     // can it be moved by the GUI
     bool m_is_movable;
@@ -23,13 +24,9 @@ public:
     bool m_bUI;// if true the UI is passed
     bool m_bPicking;// if true it means we can pick objects
 
-    std::string m_id;
-
-    bool m_bUpdateBuffer;
-    bool m_bIsInitGL;
-
-
     OGLTWidget* m_parent;
+
+    std::string m_id;
 
     virtual void mouse_grab(MouseInfo m)=0;
     virtual void mouse_drag(MouseInfo m)=0;
