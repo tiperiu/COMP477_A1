@@ -5,7 +5,7 @@
 
 #include "../elements/drawelement2D.h"
 
-#include "../elements/Joint2D.h"
+#include "../elements/joint2D.h"
 #include "../elements/obstacle2d.h"
 #include "../elements/link2d.h"
 
